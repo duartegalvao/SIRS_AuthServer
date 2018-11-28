@@ -1,0 +1,11 @@
+{% extends "auth_server/base.html" %}
+{% block content %}
+    <h1>Home</h1>
+    <div class="content-section">
+            <h3>Our Sidebar</h3>
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light"><a class="nav-item nav-link" href="{% url 'register' %}">Register</a></li>
+                <li class="list-group-item list-group-item-light"><a class="nav-item nav-link" href="{% url 'login' %}">Login</a></li>
+              </ul>
+    </div>
+{% endblock content %}
