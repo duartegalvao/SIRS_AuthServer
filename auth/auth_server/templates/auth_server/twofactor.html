@@ -1,0 +1,13 @@
+{% extends "auth_server/base.html" %}
+{% block content %}
+    <h1>Two-factor authentication</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+        <fieldset>
+            {{ form.as_p }}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+{% endblock content %}
