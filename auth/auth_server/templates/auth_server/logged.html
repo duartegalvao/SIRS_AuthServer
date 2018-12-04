@@ -1,0 +1,10 @@
+{% extends "auth_server/base.html" %}
+{% block content %}
+    <h1>WELCOME TO OUR WEB APP</h1>
+    <div class="content-section">
+            <h3>Our Sidebar</h3>
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light"><a class="nav-item nav-link" href="{% url 'logout' %}">Log-out</a></li>
+              </ul>
+    </div>
+{% endblock content %}
