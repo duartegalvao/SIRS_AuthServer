@@ -1,4 +1,13 @@
 {% extends "auth_server/base.html" %}
 {% block content %}
     <h1>Login</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+        <fieldset>
+            {{ form.as_p }}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Log-in</button>
+        </div>
+    </form>
 {% endblock content %}
