@@ -46,7 +46,6 @@ def login_view(request):
                 messages.success(request, f'{username} is logged in!')
                 return redirect('index')
         messages.error(request, 'Credentials error.')
-        form = AuthenticationForm()
         return render(request, 'auth_server/login.html', {'form': form})
     else:
         form = AuthenticationForm()
