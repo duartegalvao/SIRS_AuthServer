@@ -25,7 +25,7 @@ def register(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             form.save()
-            messages.success(request, f'Account created for {username}!')
+            messages.success(request, f'Account created for {username}! You can now login!')
             return redirect('index')
     else:
         form = UserCreationWithCaptcha()
@@ -60,14 +60,18 @@ def two_factor_view(request):
             # Retrieve user's TOTP key
             user = User.objects.get(username=request.user.username)
             totp = pyotp.TOTP(user.two_factor.totp_key)
+            print("Code " + code)
+            print("Last verified code " + user.two_factor.last_verified_token)
 
-            if totp.verify(code):
+            if totp.verify(code, valid_window=1) and code != user.two_factor.last_verified_token:
+                user.two_factor.last_verified_token = code
+                user.two_factor.save()
                 request.session['twofactor_authenticated'] = True
                 request.session.modified = True
                 return redirect('index')
             else:
                 form = TwoFactorForm()
-                messages.error(request, 'Code could not be verified. Please make sure you type the correct code.')
+                messages.error(request, 'Code could not be verified. Please make sure you typed the correct code.')
                 return render(request, 'auth_server/twofactor.html', {'form': form})
     else:
         form = TwoFactorForm()
@@ -157,7 +161,7 @@ def api_logout(request):
 
     if user is None or user.two_factor.totp_key != totp_key:
         return Response({
-            "error": "wrongCredentials"
+            "error": totp_key
         }, status=status.HTTP_400_BAD_REQUEST)
 
     # Delete secret

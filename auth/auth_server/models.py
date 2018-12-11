@@ -8,6 +8,7 @@ class UserTwoFactor(models.Model):
 
     two_factor_enabled = models.BooleanField(default=False, null=False)
     totp_key = models.CharField(max_length=16, default="", null=False)
+    last_verified_token = models.CharField(max_length=6, default="", null=True)
 
     def __str__(self):
         return self.user.__str__()
