@@ -148,7 +148,12 @@ def api_logout(request):
                 "error": "badRequest"
              }, status=status.HTTP_400_BAD_REQUEST)
 
-    user = User.objects.get(username=username)
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        return Response({
+            "error": "wrongCredentials"
+        }, status=status.HTTP_400_BAD_REQUEST)
 
     if user is None or user.two_factor.totp_key != totp_key:
         return Response({
