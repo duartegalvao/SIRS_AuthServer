@@ -14,4 +14,3 @@ class UserTwoFactor(models.Model):
 
     def isTwoFactorEnabled(self):
         return self.two_factor_enabled
-

@@ -2,3 +2,4 @@ django
 djangorestframework
 pyotp
 django-annoying
+django-simple-captcha
