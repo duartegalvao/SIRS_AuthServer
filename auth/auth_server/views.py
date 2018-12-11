@@ -131,3 +131,38 @@ def api_login(request):
     return Response({
         "secret": secret
     }, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def api_logout(request):
+    try:
+        username = request.data['username']
+        totp_key = request.data['totp_key']
+    except KeyError:
+        return Response({
+            "error": "badRequest"
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    if username == "" or totp_key == "":
+        return Response({
+                "error": "badRequest"
+             }, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        return Response({
+            "error": "wrongCredentials"
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    if user is None or user.two_factor.totp_key != totp_key:
+        return Response({
+            "error": "wrongCredentials"
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    # Delete secret
+    user.two_factor.two_factor_enabled = False
+    user.two_factor.totp_key = ""
+    user.two_factor.save()
+
+    return Response({}, status=status.HTTP_200_OK)

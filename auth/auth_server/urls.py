@@ -9,5 +9,6 @@ urlpatterns = [
     path('login/twofactor/', views.two_factor_view, name='twofactor'),
     path('logout/', views.logout_view, name='logout'),
     path('api/login/', views.api_login, name='api_login'),
+    path('api/logout/', views.api_logout, name='api_logout'),
     url(r'^captcha/', include('captcha.urls')),
 ]
