@@ -45,7 +45,7 @@ def login_view(request):
                 login(request, user)
                 messages.success(request, f'{username} is logged in!')
                 return redirect('index')
-        messages.error(request, 'Credentials error.')
+        messages.error(request, 'Could not login. User credentials do not match a user.')
         return render(request, 'auth_server/login.html', {'form': form})
     else:
         form = AuthenticationForm()
@@ -69,7 +69,7 @@ def two_factor_view(request):
                 return redirect('index')
             else:
                 form = TwoFactorForm()
-                messages.error(request, 'Code could not be verified. Please try again.')
+                messages.error(request, 'Code could not be verified. Please make sure you type the correct code.')
                 return render(request, 'auth_server/twofactor.html', {'form': form})
     else:
         form = TwoFactorForm()
@@ -80,7 +80,9 @@ def two_factor_view(request):
 def logout_view(request):
     request.session['twofactor_authenticated'] = False
     request.session.modified = True
+    username = request.user.username
     logout(request)
+    messages.success(request, f'{username} successfully logged out!')
     return redirect('index')
 
 
@@ -119,9 +121,8 @@ def api_login(request):
         }, status=status.HTTP_401_UNAUTHORIZED)
 
     # Generate secret and send to user
-    # Python's secrets.token_urlsafe(n) generates a random token with n bytes, and encodes it in base64.
-    # A 64 byte token should generate a 66 char string.
-    secret = token_urlsafe(64)
+    # returns a 16 character base32 secret.
+    secret = pyotp.random_base32()
 
     # Save secret
     user.two_factor.two_factor_enabled = True

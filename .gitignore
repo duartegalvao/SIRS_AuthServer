@@ -103,3 +103,6 @@ auth-env/
 
 # mypy
 .mypy_cache/
+
+# additional
+.idea
