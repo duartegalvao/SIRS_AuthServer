@@ -101,3 +101,9 @@ hr {
     width: 95%;
     background-color: #444444;
 }
+
+.submitSIRSBtn {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}

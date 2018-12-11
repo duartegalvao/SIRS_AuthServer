@@ -1,13 +1,18 @@
 {% extends "auth_server/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <h1>Register</h1>
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-group">
-        <fieldset>
-            {{ form.as_p }}
-        </fieldset>
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h1 style="text-align: center">Register</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <fieldset>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary submitSIRSBtn">Submit</button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 {% endblock content %}
