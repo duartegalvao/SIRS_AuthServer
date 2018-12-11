@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8399d55-74ca-483c-9c49-145b2c802208" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/auth/auth/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/auth/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/auth_server/static/auth_server/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/auth/auth_server/static/auth_server/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/auth_server/templates/auth_server/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/auth/auth_server/templates/auth_server/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/auth_server/templates/auth_server/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/auth/auth_server/templates/auth_server/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/auth_server/templates/auth_server/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/auth/auth_server/templates/auth_server/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/auth_server/templates/auth_server/twofactor.html" beforeDir="false" afterPath="$PROJECT_DIR$/auth/auth_server/templates/auth_server/twofactor.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auth/auth_server/templates/auth_server/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="27" selection-start-column="27" selection-end-column="27" />
+            <state relative-caret-position="231">
+              <caret line="11" column="31" lean-forward="true" selection-end-line="18" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -74,17 +70,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auth/auth_server/templates/auth_server/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+            <state relative-caret-position="286">
+              <caret line="47" column="24" lean-forward="true" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/auth/auth_server/templates/auth_server/twofactor.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="18" selection-start-column="18" selection-end-column="18" />
+            <state relative-caret-position="96">
+              <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+              <folding>
+                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auth/auth_server/static/auth_server/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="90" column="1" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="1" />
+            <state relative-caret-position="336">
+              <caret line="105" column="1" selection-start-line="105" selection-start-column="1" selection-end-line="107" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -148,6 +147,7 @@
         <option value="$PROJECT_DIR$/auth/auth_server/static/auth_server/main.css" />
         <option value="$PROJECT_DIR$/auth/auth_server/templates/auth_server/register.html" />
         <option value="$PROJECT_DIR$/auth/auth_server/templates/auth_server/login.html" />
+        <option value="$PROJECT_DIR$/auth/auth_server/templates/auth_server/twofactor.html" />
       </list>
     </option>
   </component>
@@ -258,12 +258,12 @@
       <option name="presentableId" value="Default" />
       <updated>1544524779862</updated>
       <workItem from="1544524784699" duration="5005000" />
-      <workItem from="1544535796513" duration="11651000" />
+      <workItem from="1544535796513" duration="12559000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16656000" />
+    <option name="totallyTimeSpent" value="17564000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -340,13 +340,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth/auth_server/templates/auth_server/twofactor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/auth/auth_server/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -388,20 +381,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth/auth_server/templates/auth_server/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth/auth_server/static/auth_server/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="90" column="1" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/auth/auth_server/templates/auth_server/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -412,12 +391,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/auth/auth_server/templates/auth_server/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="47" column="24" lean-forward="true" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/auth/auth_server/templates/auth_server/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="27" selection-start-column="27" selection-end-column="27" />
+        <state relative-caret-position="231">
+          <caret line="11" column="31" lean-forward="true" selection-end-line="18" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth/auth_server/static/auth_server/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="105" column="1" selection-start-line="105" selection-start-column="1" selection-end-line="107" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth/auth_server/templates/auth_server/twofactor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
