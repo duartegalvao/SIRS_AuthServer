@@ -79,6 +79,7 @@ def logout_view(request):
     request.session['twofactor_authenticated'] = False
     request.session.modified = True
     username = request.user.username
+
     logout(request)
     messages.success(request, f'{username} successfully logged out!')
     return redirect('index')
