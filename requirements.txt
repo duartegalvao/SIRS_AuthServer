@@ -4,3 +4,4 @@ pyotp
 django-annoying
 django-simple-captcha
 django-crispy-forms
+django-ratelimit

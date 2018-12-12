@@ -1,14 +1,16 @@
 import pyotp
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from ratelimit.decorators import ratelimit
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .forms import TwoFactorForm, UserCreationWithCaptcha, AuthenticationWithCaptchaForm
+from .forms import TwoFactorForm, UserCreationWithCaptcha
 from .decorators import two_factor_required
 
 
@@ -31,9 +33,16 @@ def register(request):
     return render(request, 'auth_server/register.html', {'form': form})
 
 
+@ratelimit(key='ip', rate='5/m', method=['POST'])
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationWithCaptchaForm(data = request.POST)
+        form = AuthenticationForm(data=request.POST)
+
+        was_limited = getattr(request, 'limited', False)
+        if was_limited:
+            messages.error(request, 'Retry limit exceded.')
+            return render(request, 'auth_server/login.html', {'form': form})
+
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
@@ -45,7 +54,7 @@ def login_view(request):
         messages.error(request, 'Could not login. User credentials do not match a user.')
         return render(request, 'auth_server/login.html', {'form': form})
     else:
-        form = AuthenticationWithCaptchaForm()
+        form = AuthenticationForm()
         return render(request, 'auth_server/login.html', {'form': form})
 
 
@@ -96,7 +105,14 @@ def logged(request):
 
 # ------ API ------
 @api_view(['POST'])
+@ratelimit(key='ip', rate='5/m')
 def api_login(request):
+    was_limited = getattr(request, 'limited', False)
+    if was_limited:
+        return Response({
+            "error": "retryLimitExceded"
+        }, status=status.HTTP_400_BAD_REQUEST)
+
     try:
         username = request.data['username']
         password = request.data['password']
@@ -137,7 +153,14 @@ def api_login(request):
 
 
 @api_view(['POST'])
+@ratelimit(key='ip', rate='5/m')
 def api_logout(request):
+    was_limited = getattr(request, 'limited', False)
+    if was_limited:
+        return Response({
+            "error": "retryLimitExceded"
+        }, status=status.HTTP_400_BAD_REQUEST)
+
     try:
         username = request.data['username']
         totp_key = request.data['totp_key']
