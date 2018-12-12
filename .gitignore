@@ -106,3 +106,6 @@ auth-env/
 
 # additional
 .idea
+
+# project local settings
+local_settings.py
