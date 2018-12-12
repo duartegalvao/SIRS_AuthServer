@@ -3,13 +3,12 @@ from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .forms import TwoFactorForm, UserCreationWithCaptcha
+from .forms import TwoFactorForm, UserCreationWithCaptcha, AuthenticationWithCaptchaForm
 from .decorators import two_factor_required
 
 
@@ -34,7 +33,7 @@ def register(request):
 
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data = request.POST)
+        form = AuthenticationWithCaptchaForm(data = request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
@@ -46,7 +45,7 @@ def login_view(request):
         messages.error(request, 'Could not login. User credentials do not match a user.')
         return render(request, 'auth_server/login.html', {'form': form})
     else:
-        form = AuthenticationForm()
+        form = AuthenticationWithCaptchaForm()
         return render(request, 'auth_server/login.html', {'form': form})
 
 
