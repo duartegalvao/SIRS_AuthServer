@@ -59,9 +59,16 @@ def login_view(request):
 
 
 @login_required
+@ratelimit(key='ip', rate='5/m', method=['POST'])
 def two_factor_view(request):
     if request.method == 'POST':
         form = TwoFactorForm(request.POST)
+
+        was_limited = getattr(request, 'limited', False)
+        if was_limited:
+            messages.error(request, 'Retry limit exceded.')
+            return render(request, 'auth_server/twofactor.html', {'form': form})
+
         if form.is_valid():
             code = form.cleaned_data.get('code')
 
