@@ -111,8 +111,8 @@ def logged(request):
 
 
 # ------ API ------
-@api_view(['POST'])
 @ratelimit(key='ip', rate='5/m')
+@api_view(['POST'])
 def api_login(request):
     was_limited = getattr(request, 'limited', False)
     if was_limited:
@@ -159,8 +159,8 @@ def api_login(request):
     }, status=status.HTTP_200_OK)
 
 
-@api_view(['POST'])
 @ratelimit(key='ip', rate='5/m')
+@api_view(['POST'])
 def api_logout(request):
     was_limited = getattr(request, 'limited', False)
     if was_limited:
