@@ -52,8 +52,8 @@ deactivate
 
 ## Team
 
-| Student Number | Name             |
-| -------------- | ---------------- |
-| 83422          | Amândio Faustino |
-| 83449          | Duarte Galvão    |
-| 83524          | Marta Cruz       |
+| Student Number | Name             | Github Profile                                  |
+| -------------- | ---------------- | ----------------------------------------------- |
+| 83422          | Amândio Faustino | [Nandinski](https://github.com/Nandinski)       |
+| 83449          | Duarte Galvão    | [duartegalvao](https://github.com/duartegalvao) |
+| 83524          | Marta Cruz       | [rbouru](https://github.com/rbouru)             |
