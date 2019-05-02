@@ -2,7 +2,9 @@
 
 ## Description
 
-SIRS project authentication server (+ web app) component.
+This is part of a project for the [Network and Computer Security (SIRS)](https://fenix.tecnico.ulisboa.pt/disciplinas/SIRS/2018-2019/1-semestre) course in Instituto Superior Técnico of the University of Lisbon.
+
+The repo contains the SIRS project authentication server (+ web app) component.
 
 ## Instructions
 
@@ -50,8 +52,8 @@ deactivate
 
 ## Team
 
-| Number | Name             |
-| ------ | ---------------- |
-| 83422  | Amândio Faustino |
-| 83449  | Duarte Galvão    |
-| 83524  | Marta Cruz       |
+| Student Number | Name             |
+| -------------- | ---------------- |
+| 83422          | Amândio Faustino |
+| 83449          | Duarte Galvão    |
+| 83524          | Marta Cruz       |
